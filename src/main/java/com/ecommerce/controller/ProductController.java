@@ -6,7 +6,8 @@ package com.ecommerce.controller;
 	import org.springframework.beans.factory.annotation.Autowired;
 	import org.springframework.http.HttpStatus;
 	import org.springframework.http.ResponseEntity;
-	import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 	import org.springframework.web.bind.annotation.GetMapping;
 	import org.springframework.web.bind.annotation.PostMapping;
 	import org.springframework.web.bind.annotation.PutMapping;
@@ -28,7 +29,7 @@ import com.ecommerce.util.Response;
 		
 		@Autowired
 		  ProductService productService;
-		
+		@CrossOrigin
 		@PostMapping("/add")
 		 public ResponseEntity<Response>  add(@RequestBody Product product) {
 			
@@ -44,8 +45,9 @@ import com.ecommerce.util.Response;
 			 
 		 }
 				
-		
+		@CrossOrigin
 		@PutMapping("/update")
+		
 		 public ResponseEntity update(@RequestBody Product product) {
 			
 			     
@@ -59,7 +61,7 @@ import com.ecommerce.util.Response;
 				}
 		 }
 		
-		
+		@CrossOrigin
 		@DeleteMapping("/delete")
 		public ResponseEntity delete(@RequestBody Product product) {
 			System.out.println("controller");
@@ -72,7 +74,7 @@ import com.ecommerce.util.Response;
 					
 				}
 		}
-		
+		@CrossOrigin
 		@GetMapping("/getById")
 		 public ResponseEntity<Product> productById(@RequestBody Product product) {
 			
@@ -80,7 +82,7 @@ import com.ecommerce.util.Response;
 			  
 			  return new ResponseEntity<Product>(result, HttpStatus.OK);
 		 }
-		
+		@CrossOrigin
 		@GetMapping("/list")
 		 public ResponseEntity<List<Product>> getAllProducts() {
 			

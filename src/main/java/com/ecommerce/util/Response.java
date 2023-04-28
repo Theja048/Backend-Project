@@ -6,7 +6,12 @@ public class Response {
 	
 	private int statusCode;
 	private String message;
+	String role;
 	
+	
+	public String getRole() {
+		return role;
+	}
 	public String getMessage() {
 		return message;
 	}
@@ -26,6 +31,11 @@ public class Response {
 	}
 	public void setOperation(boolean operation) {
 		this.operation = operation;
+	}
+	public void setRole(String role) {
+		this.role = role;
+		
+		
 	}
 	
 	

@@ -42,7 +42,7 @@ public class OrderController {
 		}
 			
 	}
-	
+	@CrossOrigin
 	@GetMapping("/list")
 	 public ResponseEntity<List<Order>> getAllOrders() {
 		
@@ -50,7 +50,7 @@ public class OrderController {
 		  
 		  return new ResponseEntity<List<Order>>(result, HttpStatus.OK);
 	 }
-	
+	@CrossOrigin
 	@PostMapping("/orderByuserId/{id}")
 	public ResponseEntity<Order> getOrderbyuserId(@PathVariable("id") int id){
 		    System.out.println("userid"+ id);
@@ -58,7 +58,7 @@ public class OrderController {
 		 return new ResponseEntity<Order>(result, HttpStatus.OK);
 	}
 
- 
+	@CrossOrigin
 	@PostMapping("/orderlist")
 	public ResponseEntity<List<Order>> getMultipleOrdersByid() {
 

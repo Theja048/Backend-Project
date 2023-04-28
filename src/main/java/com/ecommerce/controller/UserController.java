@@ -38,7 +38,7 @@ public class UserController {
 		}
 			
 	}
-	
+	@CrossOrigin
 	@GetMapping("/list")
 	 public ResponseEntity<List<User>> getAllProducts() {
 		
@@ -76,7 +76,7 @@ public class UserController {
 			}
 	 }
 
-	
+	@CrossOrigin
 	@PostMapping("/getByemail")
 	 public ResponseEntity<Response> ForgotPassword(@RequestBody User user) {
 		

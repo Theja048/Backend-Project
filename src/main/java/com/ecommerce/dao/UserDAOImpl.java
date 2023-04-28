@@ -71,7 +71,7 @@ public class UserDAOImpl implements UserDAO {
 		String u = "from User";
 		Query query =currentsession.createQuery(u,User.class);
 		List<User> users = query.getResultList();
-		
+		String role="";
 		Iterator iterator = users.iterator();
 		while(iterator.hasNext()) {
 			User user1 = (User)iterator.next();
@@ -80,6 +80,7 @@ public class UserDAOImpl implements UserDAO {
 				isUsernameMatched = true;
 				if(user1.getPassword().contentEquals(user.getPassword())){
 					isPasswordMatched = true;
+					role = user1.getRole();
 					break;
 					
 				}
@@ -91,6 +92,7 @@ public class UserDAOImpl implements UserDAO {
 			response.setMessage("login success");
 			response.setOperation(true);
 			response.setStatusCode(200);
+			response.setRole(role);
 			
 			
 		}
@@ -98,12 +100,15 @@ public class UserDAOImpl implements UserDAO {
 			response.setMessage("incorrect password");
 			response.setOperation(true);
 			response.setStatusCode(401);
+			response.setRole(role);
+			
 			
 		}
 		if(isUsernameMatched == false) {
 			response.setMessage("invalid user");
 			response.setOperation(true);
 			response.setStatusCode(401);
+			
 		
 		}
 	return response;
